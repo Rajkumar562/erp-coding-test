@@ -2,3 +2,98 @@
 
 
 ---
+Create a React component named `SupplierPerformance` for an ERP dashboard.
+
+### Component Requirements
+
+Build a reusable, responsive React component that displays supplier performance metrics in a clear dashboard widget.
+
+### Expected Data / Props
+
+The component should accept supplier data through a prop named `suppliers`.
+
+Expected structure:
+
+```js
+[
+  {
+    supplierId: "SUP-001",
+    supplierName: "ABC Supplies",
+    onTimeDeliveryPercentage: 95,
+    averageResponseTimeHours: 4.5
+  },
+  {
+    supplierId: "SUP-002",
+    supplierName: "XYZ Industries",
+    onTimeDeliveryPercentage: 78,
+    averageResponseTimeHours: 12
+  }
+]
+```
+
+The component should also be able to fetch the same data from an API endpoint such as:
+
+`/api/suppliers/performance`
+
+If API fetching is implemented, use `fetch()` inside `useEffect`.
+
+### UI Layout
+
+Display the information as a responsive table inside a dashboard card.
+
+Include these columns:
+
+1. Supplier Name
+2. On-Time Delivery
+3. Average Response Time
+4. Status
+
+For each supplier:
+
+* Display `onTimeDeliveryPercentage` as a percentage, such as `95%`.
+* Display `averageResponseTimeHours` with the `hours` unit, such as `4.5 hours`.
+* Display a clearly visible color-coded status badge.
+
+Add a suitable widget title such as **Supplier Performance**.
+
+Handle an empty supplier array by displaying a friendly message such as:
+
+`No supplier performance data available.`
+
+Also include loading and error states if the data is fetched from an API.
+
+### Color-Coding Logic
+
+Calculate the status using the supplier's on-time delivery percentage:
+
+* **Green / Good:** 90% or higher
+* **Yellow / Warning:** 75% to 89%
+* **Red / Critical:** below 75%
+
+Use the corresponding colors for the status badge:
+
+* Green background/text for Good
+* Yellow/orange background/text for Warning
+* Red background/text for Critical
+
+The status labels should be:
+
+* `Good`
+* `Warning`
+* `Critical`
+
+Keep the color logic in a separate helper function so it is easy to modify later.
+
+### Technical Requirements
+
+* Use functional React components and React hooks.
+* Use `useState` and `useEffect` where appropriate.
+* Do not use class components.
+* Use semantic HTML elements such as `<table>`, `<thead>`, `<tbody>`, `<tr>`, and `<td>`.
+* Use a stable supplier identifier such as `supplierId` for React list keys.
+* Make the component responsive and readable on desktop and smaller screens.
+* Keep the component modular and maintainable.
+* Do not hard-code supplier records in the component.
+* Add basic error handling for failed API requests.
+* Format percentages and response times clearly.
+* Return the complete `SupplierPerformance.jsx` component code.
