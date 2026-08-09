@@ -6,3 +6,10 @@
 db.order_audit.find({
     // Complete this query object
 });
+
+
+db.order_audit.find({
+order_id: "ORD-1001",
+old_status: "PENDING",
+new_status: "SHIPPED"
+});
